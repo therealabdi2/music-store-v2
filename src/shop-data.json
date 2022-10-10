@@ -1,0 +1,47 @@
+[
+  {
+    "id": "1",
+    "title": "the less i know the better",
+    "artist": "tame impala",
+    "album": "currents",
+    "duration": "3:53",
+    "imageURL": "https://coverartarchive.org/release-group/7d9db66b-c946-4efb-b9d3-2ce30b9c548e/front",
+    "price": "0.99"
+  },
+  {
+    "id": "2",
+    "title": "Just Like Heaven",
+    "artist": "The Cure",
+    "album": "Disintegration",
+    "duration": "4:15",
+    "imageURL": "https://coverartarchive.org/release-group/76dc56cc-0f0f-31df-90cc-4522ca211a0d/front",
+    "price": "1.99"
+  },
+  {
+    "id": "3",
+    "title": "Somebody That I Used To Know",
+    "artist": "Gotye",
+    "album": "Making Mirrors",
+    "duration": "4:01",
+    "imageURL": "https://coverartarchive.org/release-group/76dc56cc-0f0f-31df-90cc-4522ca211a0d/front",
+    "price": "2.99"
+  },
+  {
+    "id": "4",
+    "title": "I'm Not In Love",
+    "artist": "10cc",
+    "album": "The Original Soundtrack",
+    "duration": "4:15",
+    "imageURL": "https://coverartarchive.org/release-group/9ed70b7c-6cee-4368-a7ea-b921023ae6f7/front",
+    "price": "3.99"
+  },
+  {
+    "id": "5",
+    "title": "The Sound Of Silence",
+    "artist": "Simon & Garfunkel",
+    "album": "Sounds Of Silence",
+    "duration": "3:07",
+    "imageURL": "https://coverartarchive.org/release-group/6c21abaf-2962-3037-836f-842431587949/front",
+    "price": "4.99"
+  }
+]
