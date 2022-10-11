@@ -1,33 +1,26 @@
-import { createContext, useState } from "react";
+import React, { useContext, useState } from "react";
+import colorThemes from "../colorThemes";
 
-export const themeContext = createContext({
-  currentFontTheme: "light",
-  setCurrentTheme: () => null,
-  currentBackgroundTheme: "black",
-  setCurrentBackgroundTheme: () => null,
-});
+const ThemeContext = React.createContext();
+const ThemeContextUpdate = React.createContext();
 
-export const ThemeProvider = ({ children }) => {
-  const [currentFontTheme, setCurrentTheme] = useState("light");
-  const [currentBackgroundTheme, setCurrentBackgroundTheme] = useState("black");
-  const value = {
-    currentFontTheme,
-    setCurrentTheme,
-    currentBackgroundTheme,
-    setCurrentBackgroundTheme,
-  };
-  return (
-    <themeContext.Provider value={value}>{children}</themeContext.Provider>
-  );
+export const useTheme = () => {
+  return useContext(ThemeContext);
 };
 
-// {
-//   light: {
-//     backgroundColor: "white",
-//     color: "black",
-//   },
-//   dark: {
-//     backgroundColor: "black",m
-//     color: "white",
-//   },
-// };
+export const useThemeUpadate = () => {
+  return useContext(ThemeContextUpdate);
+};
+
+export const ThemeProvider = ({ children }) => {
+  const [selectTheme, setSelectTheme] = useState(0);
+
+  const theme = colorThemes[selectTheme];
+  return (
+    <ThemeContext.Provider value={theme}>
+      <ThemeContextUpdate.Provider value={setSelectTheme}>
+        {children}
+      </ThemeContextUpdate.Provider>
+    </ThemeContext.Provider>
+  );
+};

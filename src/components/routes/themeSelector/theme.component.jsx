@@ -1,12 +1,13 @@
+import Header from "../../header/header.component";
+
 const ThemeSelector = () => {
+  // const [theme, setTheme] = useState("light");
+  // const themeToggler = () => {
+  //   theme === "light" ? setTheme("dark") : setTheme("light");
+  // };
   return (
     <div className="content-box">
-      <h3>Some stuff</h3>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta fugiat
-        explicabo rerum consequuntur non ut est. Id eius sit consequatur dolorum
-        qui veniam atque obcaecati ratione, corrupti tenetur quia dolores.
-      </p>
+      <Header />
     </div>
   );
 };
