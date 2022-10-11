@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 
-import { onAuthStateChangedListener } from "../utils/firebase/firebase.utils";
+// import { onAuthStateChangedListener } from "../utils/firebase/firebase.utils";
 
 // the actual value you want to access
 // apart from the state the context also requires the initial value as well
@@ -23,6 +23,7 @@ export const UserProvider = ({ children }) => {
   //   });
   //   return unsubscribe();
   // }, []);
+
   // we can call the setter and get the value anywhere inside of the component tree that is nested inside of the UserProvider
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
