@@ -1,15 +1,33 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
-export const themes = {
-  light: {
-    backgroundColor: "white",
-    color: "black",
-  },
-  dark: {
-    backgroundColor: "black",
-    color: "white",
-  },
+export const themeContext = createContext({
+  currentFontTheme: "light",
+  setCurrentTheme: () => null,
+  currentBackgroundTheme: "black",
+  setCurrentBackgroundTheme: () => null,
+});
+
+export const ThemeProvider = ({ children }) => {
+  const [currentFontTheme, setCurrentTheme] = useState("light");
+  const [currentBackgroundTheme, setCurrentBackgroundTheme] = useState("black");
+  const value = {
+    currentFontTheme,
+    setCurrentTheme,
+    currentBackgroundTheme,
+    setCurrentBackgroundTheme,
+  };
+  return (
+    <themeContext.Provider value={value}>{children}</themeContext.Provider>
+  );
 };
 
-export const ThemeContext = createContext(themes.dark);
-export default ThemeContext;
+// {
+//   light: {
+//     backgroundColor: "white",
+//     color: "black",
+//   },
+//   dark: {
+//     backgroundColor: "black",m
+//     color: "white",
+//   },
+// };

@@ -1,14 +1,6 @@
-import ThemeContext from "../../../contexts/theme.context";
-import { useContext } from "react";
-
 const ThemeSelector = () => {
-  const theme = useContext(ThemeContext);
-  console.log(theme);
   return (
-    <div
-      className="content-box"
-      style={theme}
-    >
+    <div className="content-box">
       <h3>Some stuff</h3>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta fugiat

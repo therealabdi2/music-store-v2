@@ -5,7 +5,7 @@ import App from "./App";
 import { UserProvider } from "./contexts/user.context";
 import { ProductsProvider } from "./contexts/products.context";
 import { CartProvider } from "./contexts/cart.context";
-import ThemeContext, { themes } from "./contexts/theme.context";
+import { ThemeProvider } from "./contexts/theme.context";
 
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
@@ -17,9 +17,9 @@ root.render(
       <UserProvider>
         <ProductsProvider>
           <CartProvider>
-            <ThemeContext.Provider value={themes.dark}>
+            <ThemeProvider>
               <App />
-            </ThemeContext.Provider>
+            </ThemeProvider>
           </CartProvider>
         </ProductsProvider>
       </UserProvider>
