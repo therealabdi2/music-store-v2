@@ -4,6 +4,7 @@ import Home from "./components/routes/home/home.component";
 import Navigation from "./components/routes/navigation/navigation.component.jsx";
 import Authentication from "./components/authentication/authentication.component";
 import Shop from "./components/routes/shop/shop.component";
+import ThemeSelector from "./components/routes/themeSelector/theme.component.jsx";
 
 const App = () => {
   return (
@@ -15,6 +16,10 @@ const App = () => {
         <Route
           index
           element={<Home />}
+        />
+        <Route
+          path="theme"
+          element={<ThemeSelector />}
         />
         <Route
           path="/shop"

@@ -38,6 +38,12 @@ const Navigation = () => {
           >
             GET MUSIC
           </Link>
+          <Link
+            className="nav-link"
+            to="/theme"
+          >
+            SELECT THEME
+          </Link>
           {currentUser ? (
             <span
               className="nav-link"
