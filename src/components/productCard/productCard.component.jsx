@@ -25,7 +25,7 @@ const ProductCard = ({ product }) => {
         buttonType="inverted"
         onClick={addProductToCart}
       >
-        Add to cart
+        Buy Physical Copy
       </Button>
     </div>
   );
