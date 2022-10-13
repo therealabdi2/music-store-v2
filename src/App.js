@@ -24,7 +24,7 @@ const App = () => {
           element={<ThemeSelector />}
         />
         <Route
-          path="/shop"
+          path="shop/*"
           element={<Shop />}
         />
         <Route
