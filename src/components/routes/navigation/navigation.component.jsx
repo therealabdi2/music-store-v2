@@ -42,7 +42,7 @@ const Navigation = () => {
             className="nav-link"
             to="/shop"
           >
-            GET MUSIC
+            GET STUFF
           </Link>
           <Link
             className="nav-link"

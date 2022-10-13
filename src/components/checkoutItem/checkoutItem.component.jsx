@@ -5,7 +5,7 @@ import { CartContext } from "../../contexts/cart.context";
 import "./checkoutItem.styles.scss";
 
 const CheckoutItem = ({ cartItem }) => {
-  const { title, price, quantity, imageURL } = cartItem;
+  const { name, price, quantity, imageUrl } = cartItem;
 
   const { addItemToCart, removeItemFromCart, clearItemFromCart } =
     useContext(CartContext);
@@ -18,11 +18,11 @@ const CheckoutItem = ({ cartItem }) => {
     <div className="checkout-item-container">
       <div className="image-container">
         <img
-          src={imageURL}
-          alt={`${title}`}
+          src={imageUrl}
+          alt={`${name}`}
         />
       </div>
-      <span className="name">{title}</span>
+      <span className="name">{name}</span>
 
       <span className="quantity">
         <div

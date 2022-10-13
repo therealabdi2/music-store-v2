@@ -1,27 +1,37 @@
-import { useContext } from "react";
-import { useTheme } from "../../../contexts/theme.context";
+import { useContext, Fragment } from "react";
 
-import { ProductsContext } from "../../../contexts/products.context";
-import ProductCard from "../../productCard/productCard.component";
+import { useTheme } from "../../../contexts/theme.context";
 import { HeaderStyled } from "../../header/header.component";
+
+import ProductCard from "../../productCard/productCard.component";
+
+import { CategoriesContext } from "../../../contexts/categories.context";
+
 import "./shop.styles.scss";
 
 const Shop = () => {
-  const { products } = useContext(ProductsContext);
+  const { categoriesMap } = useContext(CategoriesContext);
   const theme = useTheme();
 
   return (
-    <HeaderStyled theme={theme}>
-      <div className="bg-overlay"></div>
-      <div className="products-container">
-        {products.map((product) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-          />
-        ))}
-      </div>
-    </HeaderStyled>
+    <Fragment>
+      {Object.keys(categoriesMap).map((title) => (
+        <Fragment key={title}>
+          <h2>{title}</h2>
+          <div className="products-container">
+            {categoriesMap[title].map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+              />
+            ))}
+          </div>
+        </Fragment>
+      ))}
+      <HeaderStyled theme={theme}>
+        <div className="bg-overlay"></div>
+      </HeaderStyled>
+    </Fragment>
   );
 };
 
