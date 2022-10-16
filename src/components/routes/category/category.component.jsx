@@ -4,7 +4,7 @@ import ProductCard from "../../productCard/productCard.component";
 
 import { CategoriesContext } from "../../../contexts/categories.context";
 
-import "./category.styles.scss";
+import { CategoryContainer, CategoryTitle } from "./category.styles";
 
 const Category = () => {
   const { category } = useParams();
@@ -18,8 +18,8 @@ const Category = () => {
 
   return (
     <>
-      <h2 className="category-title">{category.toUpperCase()}</h2>
-      <div className="category-container">
+      <CategoryTitle>{category.toUpperCase()}</CategoryTitle>
+      <CategoryContainer>
         {/* since the code runs asynchonously, our products could be undefined and that will throw an error so we safeguard by checking if products is defined */}
 
         {products &&
@@ -29,7 +29,7 @@ const Category = () => {
               product={product}
             />
           ))}
-      </div>
+      </CategoryContainer>
     </>
   );
 };
