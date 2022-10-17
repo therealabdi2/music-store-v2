@@ -1,14 +1,11 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 
 import FormInput from "../formInput/formInput.component";
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 
-import { UserContext } from "../../contexts/user.context";
-
 import {
-  signInWithGooglePopup,
-  createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
+  signInWithGooglePopup,
 } from "../../utils/firebase/firebase.utils";
 
 import { SignInContainer, ButtonsContainer } from "./signInForm.styles";
@@ -22,41 +19,22 @@ const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
 
-  const { setCurrentUser } = useContext(UserContext);
-
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
 
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    setCurrentUser(user);
-    await createUserDocumentFromAuth(user);
+    await signInWithGooglePopup();
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const { user } = await signInAuthUserWithEmailAndPassword(
-        email,
-        password
-      );
-
-      setCurrentUser(user);
-
+      await signInAuthUserWithEmailAndPassword(email, password);
       resetFormFields();
     } catch (error) {
-      switch (error.code) {
-        case "auth/user-not-found":
-          alert("User not found");
-          break;
-        case "auth/wrong-password":
-          alert("Wrong password");
-          break;
-        default:
-          console.log(error);
-      }
+      console.log("user sign in failed", error);
     }
   };
 
@@ -91,11 +69,11 @@ const SignInForm = () => {
         <ButtonsContainer>
           <Button type="submit">Sign In</Button>
           <Button
+            buttonType={BUTTON_TYPE_CLASSES.google}
             type="button"
             onClick={signInWithGoogle}
-            buttonType={BUTTON_TYPE_CLASSES.google}
           >
-            Google sign in
+            Sign In With Google
           </Button>
         </ButtonsContainer>
       </form>
