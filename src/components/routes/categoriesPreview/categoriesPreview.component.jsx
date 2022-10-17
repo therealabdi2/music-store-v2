@@ -1,14 +1,14 @@
-import { useContext } from "react";
+import { selectCategoryMap } from "../../../store/categories/category.selector";
 
 import { useTheme } from "../../../contexts/theme.context";
 import { HeaderStyled } from "../../header/header.component";
 
+import { useSelector } from "react-redux";
+
 import CategoryPreview from "../../categoryPreview/categoryPreview.component";
 
-import { CategoriesContext } from "../../../contexts/categories.context";
-
 const CategoriesPreview = () => {
-  const { categoriesMap } = useContext(CategoriesContext);
+  const categoriesMap = useSelector(selectCategoryMap);
   const theme = useTheme();
 
   return (
