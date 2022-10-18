@@ -1,4 +1,4 @@
-import { selectCategoryMap } from "../../../store/categories/category.selector";
+import { selectCategoriesMap } from "../../../store/categories/category.selector";
 
 import { useTheme } from "../../../contexts/theme.context";
 import { HeaderStyled } from "../../header/header.component";
@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import CategoryPreview from "../../categoryPreview/categoryPreview.component";
 
 const CategoriesPreview = () => {
-  const categoriesMap = useSelector(selectCategoryMap);
+  const categoriesMap = useSelector(selectCategoriesMap);
   const theme = useTheme();
 
   return (
